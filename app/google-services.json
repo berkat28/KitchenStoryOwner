@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "742876262775",
+    "project_id": "kitchenstoryowner",
+    "storage_bucket": "kitchenstoryowner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742876262775:android:9b60461173d46c40d13172",
+        "android_client_info": {
+          "package_name": "com.berkat.kitchenstoryowner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "742876262775-4fkq0fkur307h94j77551edslciqek92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBncEikyETqz4Ams4qMKX_Yb6czuXbLsto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "742876262775-4fkq0fkur307h94j77551edslciqek92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

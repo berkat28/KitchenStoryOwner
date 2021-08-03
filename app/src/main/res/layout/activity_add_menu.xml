@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    tools:context=".view.addmenu.AddMenuActivity">
+
+    <include layout="@layout/layout_back" android:id="@+id/back"/>
+    <LinearLayout
+        android:id="@+id/ll_approved"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chef"/>
+
+        <TextView
+            android:layout_gravity="center"
+            style="@style/text14BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_your_restaurant_menu_here"/>
+        <TextView
+            android:layout_gravity="center"
+            style="@style/text14RegularBlack"
+            android:layout_width="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_categories_first_then_the_menus_one_by_one"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:text="@string/add"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
