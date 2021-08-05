@@ -1,5 +1,7 @@
 package com.berkat.kitchenstoryowner.di
 
+import com.berkat.kitchenstoryowner.network.AuthApi
+import com.berkat.kitchenstoryowner.network.KitchenApi
 import com.berkat.kitchenstoryowner.utils.Constants.Companion.BASE_URL
 import com.berkat.kitchenstoryowner.utils.DispatchersProvider
 import dagger.Module
@@ -33,6 +35,15 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideAuthApi(): AuthApi = retrofit.create(AuthApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideKitchenApi(): KitchenApi = retrofit.create(KitchenApi::class.java)
+
     @Singleton
     @Provides
     fun provideDispatchers(): DispatchersProvider = object : DispatchersProvider {

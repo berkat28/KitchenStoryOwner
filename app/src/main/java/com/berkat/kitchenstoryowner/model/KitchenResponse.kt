@@ -3,6 +3,8 @@ package com.berkat.kitchenstoryowner.model
 import com.google.gson.annotations.SerializedName
 
 data class KitchenResponse(
+	@field:SerializedName("status")
+	val status: Boolean? = null,
 
 	@field:SerializedName("data")
 	val data: KitchenData? = null,
@@ -30,6 +32,9 @@ data class KitchenData(
 
 	@field:SerializedName("isVerify")
 	val isVerify: String? = null,
+
+	@field:SerializedName("token_jwt")
+	val tokenJwt: String? = null,
 
 	@field:SerializedName("npwp_number")
 	val npwpNumber: Any? = null,

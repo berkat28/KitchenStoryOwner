@@ -1,25 +1,22 @@
-package com.berkat.kitchenstoryowner.repository
+package com.berkat.kitchenstoryowner.repository.register
 
 import com.berkat.kitchenstoryowner.model.KitchenResponse
 import com.berkat.kitchenstoryowner.network.AuthApi
 import com.berkat.kitchenstoryowner.utils.Resource
-import okhttp3.RequestBody
 import javax.inject.Inject
 
-class DefaultRegisterRepository @Inject constructor(val api: AuthApi) :RegisterRepository {
+class DefaultRegisterRepository @Inject constructor(val api: AuthApi) : RegisterRepository {
 
 
     override suspend fun register(
-        email: RequestBody,
-        fullname: RequestBody,
-        password: RequestBody,
-        brand_name: RequestBody,
-        token_notification: RequestBody,
-        role: RequestBody
+        name: String,
+        email: String,
+        password: String,
+        brand_name: String,
     ): Resource<KitchenResponse> {
 
         return try {
-            val response = api.register(fullname, email, password, brand_name, token_notification, role)
+            val response = api.register(name, email, password, brand_name)
             val result = response.body()
 
             if (response.isSuccessful && result != null) {

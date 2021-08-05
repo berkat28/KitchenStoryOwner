@@ -16,14 +16,14 @@ interface AuthApi {
     ): Response<KitchenResponse>
 
 
-    @Multipart
-    @POST("register")
+    @FormUrlEncoded
+    @POST("/register/kitchen")
     suspend fun register(
-        @Part("email") email: RequestBody,
-        @Part("name") name: RequestBody,
-        @Part("password") password: RequestBody,
-        @Part("brand_name") brand_name: RequestBody,
-        @Part("token_notification") token_notification: RequestBody,
-        @Part("role") role: RequestBody,
+        @Field("name") name: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("brand") brand: String,
     ): Response<KitchenResponse>
+
+
 }
