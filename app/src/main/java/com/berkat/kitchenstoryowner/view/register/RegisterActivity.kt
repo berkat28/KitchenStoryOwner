@@ -1,5 +1,6 @@
 package com.berkat.kitchenstoryowner.view.register
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -8,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.berkat.kitchenstoryowner.R
 import com.berkat.kitchenstoryowner.databinding.ActivityRegisterBinding
 import com.berkat.kitchenstoryowner.utils.Preferences
+import com.berkat.kitchenstoryowner.view.datausaha.DataUsahaActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,6 +56,12 @@ class RegisterActivity : AppCompatActivity() {
 
                     is RegisterViewModel.RegisterEvent.Success -> {
                         val tokenJwt = event.kitchenResponse.data!!.tokenJwt.toString()
+                        val intent = Intent(
+                            this@RegisterActivity, DataUsahaActivity::class.java
+                        )
+                        preferences.setValues("token","Bearer $tokenJwt")
+
+                        startActivity(intent)
 
                         Toast.makeText(
                             this@RegisterActivity,

@@ -23,6 +23,7 @@ class DataUsahaViewModel @Inject constructor(val repository: DataUsahaRepository
 
     }
 
+
     private val _dataUsaha =
         MutableStateFlow<DataUsahaViewModel.DataUsahaEvent>(DataUsahaViewModel.DataUsahaEvent.Empty)
     val dataUsaha: StateFlow<DataUsahaViewModel.DataUsahaEvent> = _dataUsaha

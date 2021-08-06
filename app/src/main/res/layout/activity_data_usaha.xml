@@ -7,7 +7,6 @@
     android:padding="16dp"
     tools:context=".view.datausaha.DataUsahaActivity">
 
-
     <include
         android:id="@+id/back"
         layout="@layout/layout_back"
@@ -16,41 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_kitchen_information"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back">
-
-        <TextView
-            android:id="@+id/textView"
-            style="@style/text14BoldBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/kitchen_information"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            style="@style/text12RegularBlack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/input_detail_information_about_your_restaurant"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_owner_identity"
@@ -60,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_kitchen_information">
+        app:layout_constraintTop_toBottomOf="@+id/back">
 
         <TextView
             android:id="@+id/textView2"
@@ -132,6 +96,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/btn_continue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/_continue"

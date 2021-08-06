@@ -69,3 +69,5 @@ data class KitchenData(
 	@field:SerializedName("bank_account")
 	val bankAccount: Any? = null
 )
+
+

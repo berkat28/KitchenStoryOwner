@@ -1,10 +1,10 @@
 package com.berkat.kitchenstoryowner.network
 
 import com.berkat.kitchenstoryowner.model.KitchenResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Headers
+import retrofit2.http.*
 
 interface KitchenApi {
 
@@ -14,4 +14,24 @@ interface KitchenApi {
     suspend fun getCheckData(
         @Header("Authorization") token: String
     ): Response<KitchenResponse>
+
+    @POST("/kitchen/bank")
+    @FormUrlEncoded
+    suspend fun sendBankData(
+        @Header("Authorization") token: String,
+        @Field("bank_name") bank_name: String,
+        @Field("account_number") account_number: String,
+        @Field("account_name") account_name: String
+    ):Response<KitchenResponse>
+
+    @Multipart
+    @POST("/register/owner")
+    suspend fun registerOwner(
+        @Part("phone")phone:RequestBody,
+        @Part("nik") nik: RequestBody,
+        @Part("ktp_name") ktp_name: RequestBody,
+        @Part ktp_picture: MultipartBody.Part,
+    ):Response<KitchenResponse>
+
+
 }
