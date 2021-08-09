@@ -8,6 +8,7 @@ import okhttp3.RequestBody
 interface IdentitasPemilikRepository {
 
     suspend fun sendIdentitas(
+        token:String,
         phone:RequestBody,
         nik: RequestBody,
         ktp_name: RequestBody,

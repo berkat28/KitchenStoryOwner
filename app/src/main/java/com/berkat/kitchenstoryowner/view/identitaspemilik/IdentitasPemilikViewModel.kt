@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import java.util.*
 import javax.inject.Inject
 
 
@@ -35,6 +36,7 @@ class IdentitasPemilikViewModel @Inject constructor(val repository: IdentitasPem
         _identitasPemilik
 
     fun sendIdentitas(
+        token:String,
         phone:RequestBody,
         nik: RequestBody,
         ktp_name: RequestBody,
@@ -43,7 +45,7 @@ class IdentitasPemilikViewModel @Inject constructor(val repository: IdentitasPem
         _identitasPemilik.value = IdentitasPemilikEvent.Loading
 
         when (val registerResponse =
-            repository.sendIdentitas(phone,nik, ktp_name, ktp_picture)) {
+            repository.sendIdentitas(token,phone,nik, ktp_name, ktp_picture)) {
 
             is Resource.Error -> _identitasPemilik.value =
                 IdentitasPemilikEvent.Failure(registerResponse.message!!)

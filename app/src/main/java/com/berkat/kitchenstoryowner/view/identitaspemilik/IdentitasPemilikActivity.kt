@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,7 @@ class IdentitasPemilikActivity : AppCompatActivity(), UploadRequestBody.UploadCa
         binding = ActivityIdentitasPemilikBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        preferences = Preferences(this)
 
         binding.ivKtp.setOnClickListener {
             openImageChooser()
@@ -54,14 +56,17 @@ class IdentitasPemilikActivity : AppCompatActivity(), UploadRequestBody.UploadCa
             inputStream.copyTo(outputStream)
             val body = UploadRequestBody(file, "image", this)
 
+            val token = preferences.getValues("token").toString()
             val ccd = binding.ccdNomor.selectedCountryCode.toString()
             val phone = binding.etNoHp.text.toString()
             val phoneNumber = (ccd + phone).toRequestBody("text/plain".toMediaTypeOrNull())
             val nameId = toRequestBody(binding.etNameId)
             val nik = toRequestBody(binding.etNumberId)
+
+            Log.d("TAG", "token :${preferences.getValues("token")}")
             viewModel.sendIdentitas(
-                phoneNumber, nik, nameId, MultipartBody.Part.createFormData(
-                    "photo",
+                token, phoneNumber, nik, nameId, MultipartBody.Part.createFormData(
+                    "ktp_picture",
                     file.name,
                     body
                 )

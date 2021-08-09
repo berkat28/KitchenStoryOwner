@@ -27,6 +27,7 @@ interface KitchenApi {
     @Multipart
     @POST("/register/owner")
     suspend fun registerOwner(
+        @Header("Authorization")token:String,
         @Part("phone")phone:RequestBody,
         @Part("nik") nik: RequestBody,
         @Part("ktp_name") ktp_name: RequestBody,
